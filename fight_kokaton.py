@@ -116,12 +116,12 @@ class Beam:
         self._rct = self.img.get_rect()
         self._rct.centerx = bird._rct.centerx+100
         self._rct.centery = bird._rct.centery
-        self._vx, self._vy = +5, 0
+        self._vx, self._vy = +1, 0
 
     def update(self, screen):
         self._rct.move_ip(self._vx, self._vy)
         screen.blit(self.img, self._rct)
-
+    
 def main():
     pg.display.set_caption("たたかえ！こうかとん")
     screen = pg.display.set_mode((WIDTH, HEIGHT))
@@ -158,6 +158,7 @@ def main():
         if beam is not None:#ビームが存在したら
             beam.update(screen)
             if bomb is not None and beam._rct.colliderect(bomb._rct):
+                bird.change_img(6, screen)
                 beam = None
                 bomb = None
         pg.display.update()
