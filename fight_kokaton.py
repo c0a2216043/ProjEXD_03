@@ -101,7 +101,7 @@ class Bomb:
         self.rct = self.img.get_rect()
         self.rct.center = random.randint(0, WIDTH), random.randint(0, HEIGHT)
         self.vx, self.vy = +5, +5
-        self.a =8
+        self.a = 8
 
     def update(self, screen: pg.Surface):
         """
